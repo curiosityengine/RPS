@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <form action="/play" method="post">
+        <button name="move" value="Rock">Rock</button>
+        <button name="move" value="Paper">Paper</button>
+        <button name="move" value="Scissors">Scissors</button>
+    </form>
+
+    {% if result %}
+        <h2>You chose: {{ result.player }}</h2>
+        <h2>Computer chose: {{ result.cpu }}</h2>
+        <h2>Result: {{ result.result }}</h2>
+    {% endif %}
+
+    {% if result and result.error %}
+        <p style="color:red;">{{ result.error }}</p>
+    {% endif %}
+</body>
+</html>
